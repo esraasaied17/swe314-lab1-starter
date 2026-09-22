@@ -1,11 +1,15 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 class PasswordValidatorTest {
 
     private final PasswordValidator validator = new PasswordValidator();
+
+    @Test
+    void passwordLongerThanEightCharactersIsValid() {
+        assertTrue(validator.isValid("Abc1!xyz"));
+    }
 
     @Test
     void passwordShorterThanEightCharactersIsInvalid() {
